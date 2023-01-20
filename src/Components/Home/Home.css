@@ -1,0 +1,11 @@
+@import "../../Common/colors.css";
+
+h2{
+    color: var(--font-secondary) ;
+
+    
+  
+    font-size: 25px;
+    letter-spacing: 2px;
+    
+}

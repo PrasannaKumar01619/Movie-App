@@ -1,0 +1,13 @@
+@import "../../Common/colors.css";
+
+footer{
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-primary);
+    flex-direction: column;
+    height: 70px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+}

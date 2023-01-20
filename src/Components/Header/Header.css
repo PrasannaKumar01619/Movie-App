@@ -1,0 +1,7 @@
+@import "../../Common/colors.css";
+
+.logo{
+
+    color: var(--font-primary) !important;
+    text-decoration: none !important;
+}

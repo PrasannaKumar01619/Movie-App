@@ -1,0 +1,33 @@
+@import "../../Common/colors.css";
+
+.cardContainer{
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr)) !important;
+    margin-top: 10px !important;
+    
+
+  
+}
+
+.card{
+    margin-bottom: 0px !important;
+    margin-top: 0px!important;
+    border: none !important;
+    box-shadow: rgba(88, 67, 67, 0.35) 0px 5px 15px !important;
+    border-radius: 10px !important;
+    background-color: var( --secondary-color) !important;
+}
+
+.typo{
+
+    color: var(--font-primary) !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 1px !important;
+}
+
+.cardContent{
+    background-color: var( --secondary-color) ;
+    
+
+}
