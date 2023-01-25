@@ -1,0 +1,60 @@
+@import "../../Common/colors.css";
+
+.acontainer{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+}
+
+
+
+.title{
+    color: var(--font-primary);
+}
+
+.typoContent{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px !important;
+}
+p{
+    color: var(--font-secondary);
+    font-weight: 500;
+    font-size: small;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    
+}
+
+.plot{
+    margin-top: 30px;
+    font-size: larger;
+    color: var(--font-primary);
+    letter-spacing: 1px;
+    line-height: 30px;
+    word-spacing: 2px;
+    word-wrap: break-word;
+    
+}
+
+
+
+.facts > table tr td{
+
+    color: var(--font-secondary);
+
+}
+
+.facts >  table tr td:first-child{
+
+    color: var(--font-primary);
+    width: 100px;
+    padding: 10px 0px;
+   
+}
+

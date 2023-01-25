@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import MovieListing from "../MovieListing/MovieListing";
+import ShowListing  from "../ShowListing/ShowListing";
 import API from "../../Common/Apis/MovieApi";
 import {ApiKey} from "../../Common/Apis/MovieApiKey";
 import { useDispatch } from 'react-redux';
 import { addMovies, fetchMoviesAsync } from '../../Features/MovieSlice';
+import {asyncFetchShows} from "../../Features/ShowSlice";
 import "./Home.css";
 import "@fontsource/akaya-telivigala"
 
@@ -24,12 +26,16 @@ const Home = () => {
 
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(fetchMoviesAsync())
-    })
+        dispatch(fetchMoviesAsync());
+        dispatch(asyncFetchShows ());
+    },[])
     return (
         <div>
             <h2 style={{fontFamily: "Akaya Telivigala , cursive"}}>Movies</h2>
             <MovieListing></MovieListing>
+            <h2 style={{fontFamily: "Akaya Telivigala , cursive"}}>Shows</h2>
+            <ShowListing></ShowListing>
+
         </div>
     );
 };

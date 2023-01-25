@@ -1,13 +1,13 @@
 @import "../../Common/colors.css";
 
-.cardContainer{
+/* .cardContainer{
     display: grid !important;
-    grid-template-columns: repeat(auto-fill,minmax(280px,1fr)) !important;
+    grid-template-columns: repeat(auto-fill,minmax(265px,1fr)) !important;
     margin-top: 10px !important;
     
 
   
-}
+} */
 
 .card{
     margin-bottom: 0px !important;
@@ -16,6 +16,14 @@
     box-shadow: rgba(88, 67, 67, 0.35) 0px 5px 15px !important;
     border-radius: 10px !important;
     background-color: var( --secondary-color) !important;
+    transition: 0.3s;
+}
+
+.card:hover{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px !important;
+    /* transform: translateY(-2px) !important; */
+    transform: scale(1.1) !important;
+
 }
 
 .typo{

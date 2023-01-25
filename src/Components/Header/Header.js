@@ -9,8 +9,16 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import "./Header.css";
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Home() {
+    const [searchTerm,setSearchTerm] = React.useState("")
+    const handleChange = (e) => {
+        console.log(e.target.value)
+        setSearchTerm(e.target.value)
+    }
+    
     return (
         <Box sx={{ flexGrow: 1 , marginBottom: 4 }} >
             <AppBar position="static" >
@@ -31,7 +39,9 @@ export default function Home() {
                          </Link>
                             
                         </Typography>
-                  
+
+                        <input type="text" placeholder="Search" className='search' onChange={handleChange}></input>
+                        <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>
                     {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontFamily: "Akaya Telivigala , cursive", fontSize: "30px" }} className='toolBar'>
                             Movie App
                         </Typography> */}

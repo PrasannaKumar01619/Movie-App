@@ -1,12 +1,13 @@
-import { Api } from "@mui/icons-material";
+
 import { createSlice , createAsyncThunk} from "@reduxjs/toolkit";
 import API from "../Common/Apis/MovieApi";
 import {ApiKey} from "../Common/Apis/MovieApiKey";
 
 
 export const fetchMoviesAsync = createAsyncThunk('movies/fetchMoviesAsync', async () => {
-    const movieText = "Harry";
-    const response = await API.get(`?apiKey=${ApiKey}&s=${movieText}&type=movie`)
+    const movieText = "mission";
+    // const response = await API.get(`?apiKey=${ApiKey}&s=${movieText}&type=movie`)
+    const response = await API.get(`?apiKey=${ApiKey}&y=2000&type=movie`)
     return response.data;
 })
 

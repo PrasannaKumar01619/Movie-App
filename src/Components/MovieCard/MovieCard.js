@@ -6,18 +6,20 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { autoBatchEnhancer } from '@reduxjs/toolkit';
 import "./MovieCard.css";
+import { Link } from 'react-router-dom';
 
 
 
 export default function MovieCard({ data }) {
     return (
         <div className='cardContainer'>
-            <Card sx={{ maxWidth: 280, }} className="card" >
+        <Link to={`/movie/${data.imdbID}`} >
+            <Card sx={{ maxWidth: 250, height: 400}} className="card" >
                 <CardActionArea>
                     <CardMedia
                         component="img"
-                        height="300"
-
+                        height={300}
+                        
                         image={data.Poster}
                         alt={data.Title}
                         sx={{ objectFit: "fill" }}
@@ -32,6 +34,7 @@ export default function MovieCard({ data }) {
                     </CardContent>
                 </CardActionArea>
             </Card>
+        </Link>
         </div>
 
     );
