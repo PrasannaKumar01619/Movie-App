@@ -25,8 +25,10 @@ const Home = () => {
     // useEffect(() => {fetchMovies()},[])
 
     const dispatch = useDispatch();
+    const movieText = "mission";
+
     useEffect(() => {
-        dispatch(fetchMoviesAsync());
+        dispatch(fetchMoviesAsync(movieText));
         dispatch(asyncFetchShows ());
     },[])
     return (

@@ -11,14 +11,47 @@ import { NavLink } from 'react-router-dom';
 import "./Header.css";
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useDispatch } from 'react-redux';
+import {fetchMoviesAsync} from "../../Features/MovieSlice";
+
 
 export default function Home() {
     const [searchTerm,setSearchTerm] = React.useState("")
+    const dispatch = useDispatch();
+    const [radio,setRadio] = React.useState("");
+    const [all,setAll] = React.useState(false);
     const handleChange = (e) => {
-        console.log(e.target.value)
+        // console.log(e.target.value)
         setSearchTerm(e.target.value)
     }
-    
+
+    const handleRadioBoth = (e) => {
+        if (all === true){
+            setAll(false)
+        }else{
+            setAll(true)
+        }
+        
+    }
+    const handleRadio = (e) => {
+        if (e.target.value === radio) {
+            setRadio("")
+        }else{
+            setRadio(e.target.value);
+        }
+        
+        console.log(e.target.value,"ee")
+       
+    }
+    // console.log(radio,"rr")
+    // console.log(all,"all")
+    const handleClick = (e) => {
+        e.preventDefault();
+        searchTerm ? dispatch(fetchMoviesAsync(searchTerm)) : alert("Enter a search title")
+        
+        setSearchTerm("")
+    }
+    console.log(searchTerm,"searchTerm")
     return (
         <Box sx={{ flexGrow: 1 , marginBottom: 4 }} >
             <AppBar position="static" >
@@ -39,9 +72,25 @@ export default function Home() {
                          </Link>
                             
                         </Typography>
+                        <div>
+                        <label htmlFor='movie' >Movies</label>
+                        <input type="radio" value='movie' id='movie' onClick={handleRadio} checked={!all && radio === 'movie' } onChange={e => {}}></input>
+                        <label htmlFor='show' >Shows</label>
+                        <input type="radio" value='show' id='show' onClick={handleRadio} checked={!all && radio === 'show'} onChange={e => {}}></input>
+                        <label htmlFor='both' >Both</label>
+                        <input type="radio" value='both' id='both' onClick={handleRadioBoth} checked={all === true} onChange={e => {}}></input>
+                        </div>
+                        
 
-                        <input type="text" placeholder="Search" className='search' onChange={handleChange}></input>
+                        <form onSubmit={handleClick}>
+                        <input type="text" placeholder="Search" className='search' onChange={handleChange} value={searchTerm}></input>
+                        <button type='submit'>
                         <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>
+                        
+                        </button>
+                        </form>
+                        
+                        
                     {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontFamily: "Akaya Telivigala , cursive", fontSize: "30px" }} className='toolBar'>
                             Movie App
                         </Typography> */}
